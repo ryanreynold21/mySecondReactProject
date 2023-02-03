@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import {ImCoinDollar} from 'react-icons/im'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Card = ({product}) => {
     // console.log(product)
@@ -24,11 +24,11 @@ const Card = ({product}) => {
     }
   }
 
-  const deleteCard = () => {
-    const data = axios.delete("http://localhost:3000/products/" + product.id)
-    // navigate('/')
-    return product
-  }
+  // const deleteCard = () => {
+  //   const data = axios.delete("http://localhost:3000/products/" + product.id)
+  //   // navigate('/')
+  //   return product
+  // }
 
   return (
     <div className=' relative w-72 border flex flex-col gap-3 p-4 rounded shadow-lg'>
@@ -47,10 +47,9 @@ const Card = ({product}) => {
       </div>
       </div>
       <p className=' absolute top-3 left-[-10px]  rounded-md shadow-md py-1 px-2 bg-orange-500 text-white'>{category}</p>
-      {isAdded ? 
-      ( <button className=' bg-lime-500 px-2 py-2 text-white font-bold rounded-lg shadow-md hover:opacity-75' onClick={AddtoCart}> Added</button> ) : 
-      ( <button className=' bg-zinc-500 px-2 py-2 text-white rounded-lg shadow-md hover:opacity-75'  onClick={AddtoCart}>Remove</button> )}
-      <button onClick={deleteCard} className=' hover:opacity-70 bg-red-700 text-white px-2 py-2 rounded-md' >Delete Cart</button>
+    <Link to={`/${product.id}`} state={{ product}}> 
+     <button className=' bg-lime-600 text-white px-3 py-2 rounded-lg'>View more Details ..</button>
+    </Link>
     </div>
   )
 }
