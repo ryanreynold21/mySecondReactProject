@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import {FaShopify} from 'react-icons/fa'
-import Cart from './Cart';
-import Sidebar from './Sidebar';
 
 const Navbar = () => {
 
@@ -25,8 +23,8 @@ const Navbar = () => {
        <h1 className=' font-semibold'>MMS-Shop</h1>
      </div>
       <div className=" flex justify-center items-center p-1 gap-3">
+        <input type="text" placeholder='  search' className='bg-gray-200 p-1 rounded-md shadow' />
         <img className=' w-10 border p-1 rounded-full' src={user?.image} alt="" />
-        <p className=' font-bold text-orange-600'>{user?.name}</p>
         <button onClick={logoutHamdler} className=' bg-orange-600 text-white px-2 py-1 rounded shadow-md'>Logout</button>
       </div>
     </nav>
